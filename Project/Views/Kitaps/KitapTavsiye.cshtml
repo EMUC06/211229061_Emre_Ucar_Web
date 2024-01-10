@@ -1,0 +1,34 @@
+﻿@model Dictionary<Project.Controllers.KitapsController.YasAraligi, List<Project.Models.Data.Kitap>>
+
+
+
+
+
+
+<div class="text-center">
+    <h2>Kitap Tavsiye</h2>
+
+    <p>
+        @Html.ActionLink("Yeni Kitap Kaydı", "Create")
+    </p>
+
+    @foreach (var grup in Model)
+    {
+        <h3>@grup.Key.Baslangic - @grup.Key.Bitis Yaş Aralığı</h3>
+
+        <table class="table">
+            <tr>
+                <th>Kitap Adı</th>
+                <th>Popüler Mi?</th>
+            </tr>
+
+            @foreach (var kitap in grup.Value)
+            {
+                <tr>
+                    <td>@kitap.Ad</td>
+                    <td>@(kitap.PopulerMi ? "Evet" : "Hayır")</td>
+                </tr>
+            }
+        </table>
+    }
+</div>

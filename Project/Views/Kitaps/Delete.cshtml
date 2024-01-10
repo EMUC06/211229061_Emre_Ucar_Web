@@ -1,0 +1,55 @@
+﻿@model Project.Models.Data.Kitap
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="text-center">
+
+
+    <h3>Silmek İstediğine Emin misin?</h3>
+
+    <div class="mx-auto col-md-6">
+        <h4>Kitap</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Ad)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YasAraligiBaslangic)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.YasAraligiBaslangic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YasAraligiBitis)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.YasAraligiBitis)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PopulerMi)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PopulerMi)
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" /> |
+                @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
+</div>
